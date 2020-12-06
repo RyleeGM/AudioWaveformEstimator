@@ -21,7 +21,7 @@
 %        +--InputPane
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%function EstimatorReconstruction()
+function EstimatorReconstruction()
     close all force;                                                        %Remove before presentation
     clc;
     clear all;
@@ -88,4 +88,4 @@
     %% Initialization that must happen at the end.
     PlayPane.Children.UserData = audioplayer(RootView.UserData{1}{AudSelPane.UserData{1}}, Fs);
     PlayPane.Children.UserData.StopFcn = {@PlayPauseCallback, PlayPane};
-%end
+end
