@@ -21,8 +21,16 @@ function AudSelCallback(src, event)
     AudioGrid = RootView.Children(1).Children(3).Children;
     ButtonGroup = AudioGrid.Children(2);
     
+    Select = ButtonGroup.SelectedObject.UserData;
+    
+    if Select > 6
+        Fs = 44100
+    else
+        Fs = 8192
+    end
+    
     AudioGrid.UserData = audioplayer(...
-           RootView.UserData{ButtonGroup.SelectedObject.UserData}...
-           {PassedPanel.UserData{1}}, 8192);
+           RootView.UserData{Select}...
+           {PassedPanel.UserData{1}}, Fs);
 
 end

@@ -22,7 +22,7 @@ function MasterUpdate(PanelChanged)
     EstimatorType = RootView.Children(2).Children(1).UserData(1);
     S = RootView.Children(2).Children(3).UserData;
     SNRin = S(1);
-    FilterOrder = S(2);                                                     %Fix this.
+    FilterOrder = S(2);
     AudioSelect = RootView.Children(2).Children(2).UserData{1};
     
     %Define Plots
