@@ -34,6 +34,6 @@ function AudSelCallback(src, event)
     AudioGrid.UserData = audioplayer(...
            RootView.UserData{ButtonGroup.SelectedObject.UserData}...
            {Select}, Fs);
-   AudioGrid.UserData.StopFcn = {@PlayPauseCallback, PassedPanel};
+   AudioGrid.UserData.StopFcn = {@PlayPauseCallback, AudioGrid.Parent};
 
 end
