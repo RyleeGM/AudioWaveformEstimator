@@ -21,14 +21,14 @@
 %        +--InputPane
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function EstimatorReconstruction()
+%function EstimatorReconstruction()
     close all force;                                                        %Remove before presentation
     clc;
     clear all;
     
     %Name of available audio files.
     AudioMembers = {'Chirp   ', 'Gong    ', 'Handel  ', 'Splat   ',...
-      'Train   ', 'Laughter'};
+      'Train   ', 'Laughter', 'Acoustic Song'};
   
     %Create the window and set its name and size
     Window = uifigure('Name', 'Estimator Reconstruction');                  %Window Title
@@ -48,7 +48,9 @@ function EstimatorReconstruction()
     RootView.UserData{1}(4) = {load('splat.mat').y};
     RootView.UserData{1}(5) = {load('train.mat').y};
     RootView.UserData{1}(6) = {load('laughter.mat').y};
-    RootView.UserData{1}(6) = {load('bensound-memories.mp3').y};
+    track = audioread('bensound-memories.mp3');
+    track = track(10000:(44100*4 + 10000), 2);
+    RootView.UserData{1}(7) = {track};
     
     %% Create the LeftContainer and its children
     LeftContainer = uigridlayout(RootView, [3, 1]);
@@ -86,4 +88,4 @@ function EstimatorReconstruction()
     %% Initialization that must happen at the end.
     PlayPane.Children.UserData = audioplayer(RootView.UserData{1}{AudSelPane.UserData{1}}, Fs);
     PlayPane.Children.UserData.StopFcn = {@PlayPauseCallback, PlayPane};
-end
+%end

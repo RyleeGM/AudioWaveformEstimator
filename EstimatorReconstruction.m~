@@ -48,7 +48,7 @@ function EstimatorReconstruction()
     RootView.UserData{1}(4) = {load('splat.mat').y};
     RootView.UserData{1}(5) = {load('train.mat').y};
     RootView.UserData{1}(6) = {load('laughter.mat').y};
-    RootView.UserData{1}(6) = {load}
+    RootView.UserData{1}(7) = {load('bensound-memories.mp3').data(:,1)};
     
     %% Create the LeftContainer and its children
     LeftContainer = uigridlayout(RootView, [3, 1]);
