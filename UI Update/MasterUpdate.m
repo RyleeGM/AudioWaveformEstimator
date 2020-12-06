@@ -37,6 +37,14 @@ function MasterUpdate(PanelChanged)
     CleanSignalFFT = abs(fftshift(fft(CleanSignal)));
     CleanSignalFFT = CleanSignalFFT(round(length(CleanSignalFFT)/2):round(length(CleanSignalFFT)));
 
+    Select = RootView.Children(2).Children(2).UserData{1};
+    
+    if Select > 6
+        Fs = 44100;
+    else
+        Fs = 8192;
+    end
+    
     %Add Noise to the signal.
     [NoisySignal, NoisySignalFFT] = noiseSignal(CleanSignal, SNRin);
     
