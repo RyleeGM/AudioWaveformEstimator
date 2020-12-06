@@ -7,7 +7,7 @@
 % Creation Date: 12.3.2020
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function PlayPauseCallback(src, event, ExtraPane)
+function PlayPauseCallback(src, ~, ExtraPane)
 
     %If it is the audio ending put the button back and return.
     if class(src) == "audioplayer"
