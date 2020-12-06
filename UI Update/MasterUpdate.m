@@ -37,27 +37,25 @@ function MasterUpdate(PanelChanged)
     CleanSignalFFT = abs(fftshift(fft(CleanSignal)));
     CleanSignalFFT = CleanSignalFFT(round(length(CleanSignalFFT)/2):round(length(CleanSignalFFT)));
 
-    Select = RootView.Children(2).Children(2).UserData{1};
+    %Add Noise to the signal.
+    [NoisySignal, NoisySignalFFT] = noiseSignal(CleanSignal, SNRin);
     
+    RootView.Parent.Pointer = 'watch';
+    Select = RootView.Children(2).Children(2).UserData{1};
     if Select > 6
         Fs = 44100;
     else
         Fs = 8192;
     end
-    
-    %Add Noise to the signal.
-    [NoisySignal, NoisySignalFFT] = noiseSignal(CleanSignal, SNRin);
-    
-    RootView.Parent.Pointer = 'watch';
+        
     if EstimatorType == 1
         
         [FilterSignal, FilterSignalFFT] = MatlabLinearPrediction(NoisySignal, FilterOrder);
         
-    else
-       
-        cla(Axis1(2));
-        cla(Axis2(2));
-        return;
+    else    
+        FilterSignal = kalman_est(NoisySignal,FilterOrder,Fs);
+         FilterSignalFFT = abs(fftshift(fft(FilterSignal)));
+        FilterSignalFFT = FilterSignalFFT((length(FilterSignalFFT)/2):(length(FilterSignalFFT)));
     end
     RootView.Parent.Pointer = 'arrow';
     
