@@ -45,7 +45,7 @@ function DrawReportPane(PassedPanel)
     LDMSE.FontSize = 14;
     
     LSNRout = uilabel(ReportGrid);
-    LSNRout.Text = 'MSE Difference: ---';
+    LSNRout.Text = 'SNRout: ---';
     LSNRout.HorizontalAlignment = 'center';
     LSNRout.FontWeight = 'bold';
     LSNRout.FontSize = 14;
@@ -72,11 +72,11 @@ function DrawReportPane(PassedPanel)
     KDMSE.Text = 'MSE Difference: ---';
     KDMSE.HorizontalAlignment = 'center';
     KDMSE.FontWeight = 'bold';
-    KDMSE.FontSize = 15;
+    KDMSE.FontSize = 14;
     
     KSNRout = uilabel(ReportGrid);
-    KSNRout.Text = 'MSE Difference: ---';
+    KSNRout.Text = 'SNRout: ---';
     KSNRout.HorizontalAlignment = 'center';
     KSNRout.FontWeight = 'bold';
-    KSNRout.FontSize = 15;
+    KSNRout.FontSize = 14;
 end
