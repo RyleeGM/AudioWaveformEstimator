@@ -22,7 +22,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function EstimatorReconstruction()
-    close all force;                                                        %Remove before presentation
+    close all force;                                                     
     clc;
     clear all;
     
@@ -31,7 +31,7 @@ function EstimatorReconstruction()
       'Train   ', 'Laughter', 'Acoustic Song'};
   
     %Create the window and set its name and size
-    Window = uifigure('Name', 'Estimator Reconstruction');                  %Window Title
+    Window = uifigure('Name', 'Estimator Reconstruction');        
     Window.Position = [0 1000 1920 1000];
 
     %RootView layout 
