@@ -13,6 +13,13 @@ function PlayPaneCallback(src, event)
     RootView = AudioGrid.Parent.Parent.Parent;
     PlayPane = RootView.Children(1).Children(3);
     AudSelPane = RootView.Children(2).Children(2);
+    EstimatorSelect = RootView.Children(2).Children(1).UserData(1) - 1;
+    
+    TypeSelect = event.NewValue.UserData;
+    %Select which version of the audio signal.
+    if TypeSelect == 3
+        TypeSelect = TypeSelect + EstimatorSelect;
+    end
     
     Select = AudSelPane.UserData{1};
     
@@ -22,7 +29,7 @@ function PlayPaneCallback(src, event)
         Fs = 8192;
     end
     
-    AudioGrid.UserData = audioplayer(RootView.UserData{event.NewValue.UserData}{AudSelPane.UserData{1}}, Fs);
+    AudioGrid.UserData = audioplayer(RootView.UserData{TypeSelect}{Select}, Fs);
     AudioGrid.UserData.StopFcn = {@PlayPauseCallback, PlayPane};
 
 end
