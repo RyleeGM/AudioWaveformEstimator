@@ -37,7 +37,8 @@ function EstimatorReconstruction()
     %RootView layout 
     RootView = uigridlayout(Window, [1,2]);
     RootView.ColumnWidth = {'3x', '0.75x'};
-    RootView.UserData = {cell(1,7), cell(1,7), cell(1, 7)};
+    RootView.UserData = {cell(1,7), cell(1,7), cell(1,7), cell(1,7),...
+                         cell(1,7), cell(1,7), cell(1,7)};
     
     %Load the audio samples into the root view user data
     %Manually, because I enjoy pain and bad code apparently...
