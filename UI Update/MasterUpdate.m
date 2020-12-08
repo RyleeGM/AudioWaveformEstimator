@@ -112,7 +112,7 @@ function MasterUpdate(PanelChanged)
 
     cla(Axis2(2));
     hold(Axis2(2), 'on');
-    plot(Axis2(2), RootView.UserData{1}{AudioSelect});
+    plot(Axis2(2), RootView.UserData{1}{AudioSelect}, 'g');
     plot(Axis2(2), RootView.UserData{EstimatorType + 2}{AudioSelect});
     legend(Axis2(2), 'Clean Original Signal', 'Reconstructed Output Signal');
     Axis2(2).YLim = Ylim;
@@ -128,7 +128,7 @@ function MasterUpdate(PanelChanged)
 
     cla(Axis4(2));
     hold(Axis4(2), 'on');
-    plot(Axis4(2), CleanSignalFFT);
+    plot(Axis4(2), CleanSignalFFT, 'g');
     plot(Axis4(2), RootView.UserData{EstimatorType + 5}{AudioSelect});
     Axis4(2).YLim = Ylim;
     legend(Axis4(2), 'Clean Original Signal', 'Reconstructed Output Signal');
